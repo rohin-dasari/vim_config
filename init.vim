@@ -1,36 +1,61 @@
+set nocompatible
+filetype plugin on
+syntax on
 
-call plug#begin('~/AppData/Local/nvim/plugged')
-Plug 'ycm-core/YouCompleteMe'
-Plug 'preservim/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'jiangmiao/auto-pairs'
-Plug 'alvan/vim-closetag'
-Plug 'vim-syntastic/syntastic'
-call plug#end()
+let g:python3_host_prog = '/home/rohindasari/miniconda3/bin/python'
+
+map <C-J> gT
+map <C-K> gt
+nmap <S-J> :bN<CR>
+nmap <S-K> :bn<CR>
+
+highlight Pmenu ctermbg=30
+:tnoremap <Esc> <C-\><C-N>
 
 set tabstop=4
 set shiftwidth=4
 set autoindent
-set paste
-map <C-J> gT
-map <C-K> gt
-nnoremap <C-N> :NERDTree<CR>
-nnoremap <C-B> <C-V>
-inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
-hi clear SignColumn
-let g:syntastic_error_symbol = "✘"
-let g:syntastic_warning_symbol = "▲"
-augroup mySyntastic
-	au!
-	au FileType tex les b:syntastic_mode = "passive"
+set expandtab
+
+set nu
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" |set rnu | endif
+    autocmd BufLeave,FocusLost,InsertEnter,WinLeave * if &nu | set nornu | endif
 augroup END
-:tnoremap <Esc> <C-\><C-N>
-let g:nerdtree_tabs_open_on_console_startup = 1
-let g:python3_host_prog = '~/../../ProgramData/Miniconda3/python.exe'
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-let g:closetag_filetypes = 'html,xhtml,phtml'
-let g:closetag_xhtml_filetypes = 'xhtml,jsx'
-let g:closetag_shortcut = '>'
-let g:closetag_close_shortcut = '<leader>>'
+
+set directory=$HOME/.vim/swapfiles
+
+call plug#begin('/home/rohindasari/.config/nvim/plugged')
+
+" code + text completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" markdown editing
+Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app & yarn install'}
+
+" Journaling and note-taking
+Plug 'vimwiki/vimwiki'
+
+"Theme
+Plug 'kyoz/purify', {'rtp': 'vim'}
+
+call plug#end()
+
+" Theme settings
+colorscheme purify
+let g:airline_theme='purify'
+
+" Vimwiki settings
+command! Diary VimwikiDiaryIndex
+augroup vimwikigroup
+    autocmd!
+    " automatically update links in read diary
+    autocmd BufRead,BufNewFile diary.wiki VimwikiDiaryGenerateLinks
+augroup end
+
