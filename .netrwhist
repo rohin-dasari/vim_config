@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/rdasari5/projects/nevins/backend/bloomberg/njacob34/eltnijsv'
+let g:netrw_dirhist_1='/home/rdasari5/grading/sept13_2021/submissions/msegal32/backend/bloomberg'
+let g:netrw_dirhist_0='/home/rdasari5/projects/final_project/backend/bloomberg/eltdfm4020sv/schemas'
+let g:netrw_dirhist_9='/home/rdasari5/grading/aug23_LD_2021/submissions/sdabola/backend/eltdfm9643db/schemas'
+let g:netrw_dirhist_8='/home/rdasari5/.scripts'
+let g:netrw_dirhist_7='/home/rdasari5/grading/aug23_NY_2021/submissions/dshebib/backend'
+let g:netrw_dirhist_6='/home/rdasari5/grading/aug23_NY_2021/submissions/dshebib'
+let g:netrw_dirhist_5='/home/rdasari5/.scripts'
+let g:netrw_dirhist_4='/home/rdasari5/projects/nevins/backend/.git'
+let g:netrw_dirhist_3='/home/rdasari5/projects/nevins/backend'

@@ -2,7 +2,7 @@ set nocompatible
 filetype plugin on
 syntax on
 
-let g:python3_host_prog = '/home/rohindasari/miniconda3/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
 
 map <C-J> gT
 map <C-K> gt
@@ -26,7 +26,7 @@ augroup END
 
 set directory=$HOME/.vim/swapfiles
 
-call plug#begin('/home/rohindasari/.config/nvim/plugged')
+call plug#begin('/home/rdasari5/.config/nvim/plugged')
 
 " code + text completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -56,6 +56,18 @@ command! Diary VimwikiDiaryIndex
 augroup vimwikigroup
     autocmd!
     " automatically update links in read diary
-    autocmd BufRead,BufNewFile diary.wiki VimwikiDiaryGenerateLinks
+    autocmd BufRead,BufNewFile,InsertEnter ~/vimwiki/diary.md VimwikiDiaryGenerateLinks
 augroup end
 
+" vimwiki config
+let g:vimwiki_list = [{'path': '~/vimwiki',
+            \ 'syntax': 'markdown', 'ext': '.md'}]
+
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+    augroup END
+endif
