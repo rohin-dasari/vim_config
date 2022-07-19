@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/rohindasari/research/Griddly'
+let g:netrw_dirhist_7='/home/rohindasari/research'
+let g:netrw_dirhist_6='/mnt/c/Users/Rohin Dasari/Downloads/xilinx_dev_kit/smartnic_plugin_developer_kit-v1.0.0.213/example_plugins/rfc781demo/host'
+let g:netrw_dirhist_5='/home/rohindasari/research/watts_package/tests'
+let g:netrw_dirhist_4='/home/rohindasari/research/watts_package/tests/solvers'
+let g:netrw_dirhist_3='/home/rohindasari/research/gym-pcgrl/gym_pcgrl'
+let g:netrw_dirhist_2='/home/rohindasari/research/gym-pcgrl/configs'
+let g:netrw_dirhist_1='/home/rohindasari/school/computer_networking/5-homework'
+let g:netrw_dirhist_0='/home/rohindasari/ray_results/PPO/PPO_MAPcgrl-binary-narrow-v0_d1dba_00000_0_2022-04-12_00-34-20'
+let g:netrw_dirhist_9='/home/rohindasari/research/watts_package/sample_args'
